@@ -25,6 +25,12 @@ int_trie_init(int max_children)
 }
 
 void
+int_trie_free(int_trie_t *trie)
+{
+	free(trie);
+}
+
+void
 int_trie_set(int_trie_t *trie, int key, void *val)
 {
 	trie->children[key] = val;

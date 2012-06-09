@@ -33,6 +33,21 @@ find_marker(int_trie_t *trie, int level)
 	}
 }
 
+void
+free_trie(int_trie_t *trie)
+{
+	int idx;
+	void *value;
+
+	for (idx = 0; idx < MAX_CHILDREN; idx++) {
+		value = int_trie_get(trie, idx);
+		if (value && (value != &marker)) {
+			free_trie((int_trie_t *)value);
+		}
+	}
+	int_trie_free(trie);
+}
+
 main(int argc, char *argv[])
 {
 	int idx, jdx;
@@ -62,6 +77,9 @@ main(int argc, char *argv[])
 
 	/* Test */
 	find_marker(root, 0);
+
+	/* free */
+	free_trie(root);
 
 	return 0;
 }
