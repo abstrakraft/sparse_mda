@@ -150,9 +150,9 @@ avl_node_search(avl_node_t *node, cmp_t *cmp, void *data)
 	avl_node_t *cursor = node;
 
 	do {
-		int c = cmp(data, node->data);
+		int c = cmp(data, cursor->data);
 		if (c == 0) {
-			return node->data;
+			return cursor->data;
 		}
 		else {
 			int idx = (c>=0) ? 1 :  0;

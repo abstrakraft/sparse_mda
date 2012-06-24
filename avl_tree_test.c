@@ -101,6 +101,13 @@ main(int argc, char *argv[])
 	}
 	/* printf("\n"); */
 
+	for (idx = 0; idx < 20; idx++) {
+		if (*(int *)avl_tree_search(tree, &test_ints[idx]) != test_ints[idx]) {
+			fprintf(stderr, "error on avl_tree_search\n");
+			return -1;
+		}
+	}
+
 #if RAND_TEST
 	for (idx = 0; idx < sizeof(test_ints)/sizeof(test_ints[0])/2; idx++) {
 		avl_tree_delete(tree, &test_ints[idx]);
