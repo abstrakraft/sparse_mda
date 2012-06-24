@@ -14,7 +14,10 @@ sparse_mda_test: sparse_mda.o int_trie.o
 
 avl_tree_test: avl_tree.o avl_node.o
 
+test: all
+	for f in $(TESTS); do ./$$f; done
+
 clean:
 	rm -rf $(OBJECTS) $(TESTS) *.dSYM
 
-.PHONY: all
+.PHONY: all test
