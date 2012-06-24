@@ -1,2 +1,4 @@
 *.o
 *_test
+*.pyc
+*.dSYM
