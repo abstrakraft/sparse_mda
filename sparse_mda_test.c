@@ -24,14 +24,14 @@ main(int argc, char *argv[])
 	char pass;
 	sparse_mda_t *mda;
 	
-	if (!(mda = sparse_mda_init(DIM_COUNT, size, DEF_VAL))) {
+	if (!(mda = sparse_mda_init(DIM_COUNT, DEF_VAL))) {
 		fprintf(stderr, "sparse_mda_init error\n");
 		return -1;
 	}
 
 	for (idx = 0; idx < TEST_COUNT; idx++) {
 		if (sparse_mda_set(mda, indices[idx], values[idx])) {
-			fprintf(stderr, "sparse_mda_set\n");
+			fprintf(stderr, "sparse_mda_set error\n");
 		}
 	}
 
