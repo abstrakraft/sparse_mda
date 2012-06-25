@@ -24,7 +24,8 @@ avl_tree_insert(avl_tree_t *tree, void *data)
 	}
 
 	if (tree->root) {
-		return avl_node_insert(&tree->root, tree->cmp, node);
+		avl_node_insert(&tree->root, tree->cmp, node);
+		return 0;
 	}
 	else {
 		tree->root = node;
